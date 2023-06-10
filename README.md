@@ -31,7 +31,6 @@ This repository includes files with plain SQL that can be used to recreate a dat
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 
-- [🧑🏻‍💻 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Clone](#clone)
 - [👥 Authors](#authors)
