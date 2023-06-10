@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
-
 <div align="center">
-
   <img src="https://user-images.githubusercontent.com/65084923/229625646-f5177182-4280-4f3f-98a4-baa49d71d544.png" alt="logo" width="350"  height="auto" />
   <img src="https://user-images.githubusercontent.com/65084923/229625913-4d4f5397-c1af-4ef1-9589-3abb74a3eeaa.png" alt="logo" width="350"  height="auto" />
   <br/>
@@ -150,10 +148,9 @@ My mother. Let's play until the end together ❤️ with 🧠
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## ❓ FAQ <a name="faq"></a>
-
 - **Is there any restriction to adapting the DB to other porpuse??**
 
-  - No problem.
+  - No problem t.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
