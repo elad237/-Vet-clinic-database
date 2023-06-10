@@ -150,7 +150,7 @@ My mother. Let's play until the end together ❤️ with 🧠
 ## ❓ FAQ <a name="faq"></a>
 - **Is there any restriction to adapting the DB to other porpuse??**
 
-  - No problem t.
+  - No problem your can go ahead.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
