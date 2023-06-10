@@ -1,56 +1,82 @@
 /* Database schema to keep the structure of entire database. */
 
-CREATE TABLE owners(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  full_name VARCHAR(20),
-  age INT,
-  PRIMARY KEY(id)
+CREATE TABLE animals (
+    name varchar(100)
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name varchar(100) NOT NULL,
+    date_of_birth DATE NOT NULL,
+    escape_attempts INT NOT NULL,
+    neutered BIT NOT NULL,
+    weight_kg DECIMAL NOT NULL
 );
 
-CREATE TABLE species(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(20),
-  PRIMARY KEY(id)
+ALTER TABLE animals
+ADD species varchar(255);
+
+-- day3
+
+CREATE TABLE owners (
+    id SERIAL PRIMARY KEY,
+    full_name varchar(100) NOT NULL,
+    age INT NOT NULL
 );
 
-CREATE TABLE animals(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(20),
-  date_of_birth DATE,
-  escape_attempts INT,
-  neutered BOOLEAN,
-  weight_kg DECIMAL,
-  species_id INT REFERENCES species(id),
-  owner_id INT REFERENCES owners(id),
-  PRIMARY KEY(id)
+CREATE TABLE species (
+    id SERIAL PRIMARY KEY,
+    name varchar(100) NOT NULL
 );
 
-CREATE TABLE vets(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(20),
-  age INT,
-  date_of_graduation DATE,
-  PRIMARY KEY(id)
+
+
+ALTER TABLE animals
+DROP COLUMN id,
+DROP COLUMN species;
+
+ALTER TABLE animals
+ADD COLUMN id SERIAL PRIMARY KEY;
+
+UPDATE animals SET id = id;
+
+ALTER TABLE animals
+ADD COLUMN species_id INTEGER,
+ADD CONSTRAINT fk_species
+    FOREIGN KEY (species_id)
+    REFERENCES species (id);
+
+ALTER TABLE animals
+ADD COLUMN owner_id INTEGER,
+ADD CONSTRAINT fk_owners
+    FOREIGN KEY (owner_id)
+    REFERENCES owners (id);
+
+
+-- day 4
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    age INT NOT NULL,
+    date_of_graduation DATE NOT NULL
 );
 
-CREATE TABLE specializations(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  species_id INT REFERENCES species(id),
-  vet_id INT REFERENCES vets(id),
-  PRIMARY KEY(id)
+CREATE TABLE specializations (
+    vets_id SERIAL REFERENCES vets (id),
+    species_id SERIAL REFERENCES species (id),
+    PRIMARY KEY (vets_id, species_id)
 );
 
-CREATE TABLE visits(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  animal_id INT REFERENCES animals(id),
-  vet_id INT REFERENCES vets(id),
-  date_of_visit DATE,
-  PRIMARY KEY(id)
+CREATE TABLE visits (
+    animals_id SERIAL REFERENCES animals (id),
+    vets_id SERIAL REFERENCES vets (id),
+    date_of_visit DATE,
+    PRIMARY KEY (animals_id, vets_id, date_of_visit)
 );
 
--- To add an email column to your owners table
-ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+-- Second week - Performance Audit
 
-CREATE INDEX index_visits_on_animal_id ON visits (animal_id); 
-CREATE INDEX index_visits_on_vet_id ON visits (vet_id); 
-CREATE INDEX index_owners_on_email ON owners (email); 
+CREATE INDEX animal_id_asc ON visits (animal_id);
+
+CREATE INDEX mail_asc ON owners (email);
+
+CREATE INDEX vet_id_asc ON visits (vet_id)
+vets_clinic-# WHERE (extract(dow from vet_id) = 2);
