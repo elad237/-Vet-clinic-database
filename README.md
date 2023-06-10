@@ -119,7 +119,7 @@ You should have installed POSTGRESQL.
 👤 **TUMBU BARTHOLOMEW ELAD**
 GitHub: [@githubhandle](https://github.com/elad237)
 - Twitter: [@twitterhandle](https://twitter.com/Elad59380989)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tumbu-elad-896ab2183/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tumbu-elad/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
